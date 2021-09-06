@@ -11,7 +11,7 @@ const Challenge = ()=>{
     
     useEffect(()=>{
         const getChallenge = async () =>{
-            const url = `https://moadw-challenge.herokuapp.com/api/find-many?skip=0&limit=100&sort=100`
+            const url = `https://moadw-challenge.herokuapp.com/api/find-many?skip=0&limit=15&sort=100`
             const api = await fetch(url).then((res) => res.json())
             setData(api)
             setTotalUsers(api.length)
@@ -24,7 +24,7 @@ const Challenge = ()=>{
 
     useEffect(()=>{
 
-        setPages(Math.ceil(totalUsers / 10))
+        setPages(Math.ceil(totalUsers / 3))
     
       },[totalUsers])
     
@@ -32,10 +32,10 @@ const Challenge = ()=>{
         setCurrentPage(newPage)
       }
     
-      const list = data.slice((currentPage - 1) * 10, currentPage * 10).map((user) => 
+      const list = data.slice((currentPage - 1) * 3, currentPage * 3).map((user) => 
       <Users key={user.id} user={user}/>)
     
-    console.log(data)
+    
     return(
         <div>
             <h1>PRUEBA TECNICA</h1>

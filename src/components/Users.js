@@ -1,4 +1,8 @@
+
+import { Link } from "react-router-dom";
+
 const Users =({user})=>{
+    
     return(
         <div>
             <div>
@@ -8,7 +12,9 @@ const Users =({user})=>{
             <div>
                 <h4>DONATIONS: {user.donations}</h4>
             </div>
-            <button type="button" className="btn btn-info margin-button">INFO</button>
+            <Link to ={`/${user.id}`}>
+            <button className="btn btn-info margin-button">INFO</button>
+            </Link>
         </div>
             
         
